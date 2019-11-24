@@ -26,7 +26,10 @@
         "ext-json": "*",
         "friendsofphp/php-cs-fixer": "^2.15",
         "phpunit/phpunit": "^8.4",
-        "symfony/framework-bundle": "^4.1"
+        "symfony/config": "^4.1",
+        "symfony/event-dispatcher": "^4.1",
+        "symfony/framework-bundle": "^4.1",
+        "symfony/http-kernel": "^4.1"
     },
 
     "autoload": {

@@ -25,6 +25,7 @@ use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Logger\ConsoleLogger;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Terminal;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -395,7 +396,7 @@ trait Parallelization
                 self::getEnvironmentVariables($this->getContainer()),
                 $numberOfProcesses,
                 $segmentSize,
-                $this->getContainer()->get('logger', ContainerInterface::NULL_ON_INVALID_REFERENCE),
+                new ConsoleLogger($output),
                 function (string $type, string $buffer) use ($progressBar, $output, $terminalWidth) {
                     $this->processChildOutput($buffer, $progressBar, $output, $terminalWidth);
                 }
